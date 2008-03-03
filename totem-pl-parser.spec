@@ -23,7 +23,8 @@ BuildRequires:	pkgconfig
 BuildRequires:	sed >= 4.0
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
-Obsoletes:	totem-devel
+Provides:	totem-libs
+Obsoletes:	totem-libs
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -38,6 +39,8 @@ Requires:	%{name} = %{version}-%{release}
 Requires:	gnome-vfs2-devel >= 2.20.1
 Requires:	gtk+2-devel >= 2:2.12.0
 Requires:	libxml2-devel >= 1:2.6.30
+Provides:	totem-devel
+Obsoletes:	totem-devel
 
 %description devel
 Header files for totem-pl-parser library.
@@ -50,6 +53,8 @@ Summary:	Static totem-pl-parser library
 Summary(pl.UTF-8):	Statyczna biblioteka totem-pl-parser
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
+Provides:	totem-static
+Obsoletes:	totem-static
 
 %description static
 Static totem-pl-parser library.
