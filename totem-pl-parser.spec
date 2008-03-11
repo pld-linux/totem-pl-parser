@@ -1,24 +1,24 @@
 Summary:	Totem Playlist Parser library
 Name:		totem-pl-parser
-Version:	2.21.92
+Version:	2.22.1
 Release:	1
 License:	LGPL v2+
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/totem-pl-parser/2.21/%{name}-%{version}.tar.bz2
-# Source0-md5:	48849576a68cf39d6d82c9ac58d277c3
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/totem-pl-parser/2.22/%{name}-%{version}.tar.bz2
+# Source0-md5:	6a43a727205ae0a379e325c50ace0a40
 URL:		http://www.gnome.org/projects/totem/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	dbus-devel >= 0.61
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.20.0
-BuildRequires:	gnome-vfs2-devel >= 2.20.1
-BuildRequires:	gtk+2-devel >= 2:2.12.3
+BuildRequires:	gnome-vfs2-devel >= 2.22.0
+BuildRequires:	gtk+2-devel >= 2:2.12.8
 BuildRequires:	gtk-doc >= 1.9
 BuildRequires:	hal-devel >= 0.5.9
 BuildRequires:	intltool >= 0.35.0
 BuildRequires:	libtool
-BuildRequires:	libxml2-devel >= 1:2.6.30
+BuildRequires:	libxml2-devel >= 1:2.6.31
 BuildRequires:	pkgconfig
 BuildRequires:	sed >= 4.0
 # sr@Latn vs. sr@latin
@@ -36,9 +36,9 @@ Summary:	Header files for totem-pl-parser library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki totem-pl-parser
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	gnome-vfs2-devel >= 2.20.1
-Requires:	gtk+2-devel >= 2:2.12.0
-Requires:	libxml2-devel >= 1:2.6.30
+Requires:	gnome-vfs2-devel >= 2.22.0
+Requires:	gtk+2-devel >= 2:2.12.8
+Requires:	libxml2-devel >= 1:2.6.31
 Provides:	totem-devel
 Obsoletes:	totem-devel
 
