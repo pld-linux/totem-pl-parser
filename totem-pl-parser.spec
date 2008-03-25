@@ -10,6 +10,7 @@ URL:		http://www.gnome.org/projects/totem/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	dbus-devel >= 0.61
+BuildRequires:	evolution-data-server-devel
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.20.0
 BuildRequires:	gnome-vfs2-devel >= 2.22.0
