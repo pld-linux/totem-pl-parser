@@ -1,4 +1,5 @@
 Summary:	Totem Playlist Parser library
+Summary(pl.UTF-8):	Biblioteka analizująca listy odtwarzania Totema
 Name:		totem-pl-parser
 Version:	2.22.3
 Release:	2
@@ -31,6 +32,10 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 A library to parse and save playlists, as used in music and movie
 players.
+
+%description -l pl.UTF-8
+Biblioteka do analizy i zapisu list odtwarzania (playlist) używanych
+przez odtwarzacze muzyki i filmów.
 
 %package devel
 Summary:	Header files for totem-pl-parser library
