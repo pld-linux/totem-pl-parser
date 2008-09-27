@@ -1,12 +1,12 @@
 Summary:	Totem Playlist Parser library
 Summary(pl.UTF-8):	Biblioteka analizująca listy odtwarzania Totema
 Name:		totem-pl-parser
-Version:	2.22.3
-Release:	2
+Version:	2.24.0
+Release:	1
 License:	LGPL v2+
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/totem-pl-parser/2.22/%{name}-%{version}.tar.bz2
-# Source0-md5:	a00956f87fa8fcb1f6760dccea5e0f84
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/totem-pl-parser/2.24/%{name}-%{version}.tar.bz2
+# Source0-md5:	9afeede3075c10f8cf1092d80c4e9737
 URL:		http://www.gnome.org/projects/totem/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake >= 1:1.9
@@ -14,15 +14,14 @@ BuildRequires:	dbus-devel >= 0.61
 BuildRequires:	evolution-data-server-devel
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.20.0
-BuildRequires:	gnome-vfs2-devel >= 2.22.0
-BuildRequires:	gtk+2-devel >= 2:2.12.8
+BuildRequires:	glib2-devel >= 1:2.16.3
+BuildRequires:	gtk+2-devel >= 2:2.14.0
 BuildRequires:	gtk-doc >= 1.9
 BuildRequires:	hal-devel >= 0.5.9
-BuildRequires:	intltool >= 0.35.0
+BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 1:2.6.31
 BuildRequires:	pkgconfig
-BuildRequires:	sed >= 4.0
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
 Provides:	totem-libs
@@ -42,8 +41,7 @@ Summary:	Header files for totem-pl-parser library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki totem-pl-parser
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	gnome-vfs2-devel >= 2.22.0
-Requires:	gtk+2-devel >= 2:2.12.8
+Requires:	gtk+2-devel >= 2:2.14.0
 Requires:	libxml2-devel >= 1:2.6.31
 Provides:	totem-devel
 Obsoletes:	totem-devel
@@ -83,9 +81,6 @@ Dokumentacja API biblioteki totem-pl-parser.
 %prep
 %setup -q
 
-sed -i -e 's#sr@Latn#sr@latin#' po/LINGUAS
-mv -f po/sr@{Latn,latin}.po
-
 %build
 %{__intltoolize}
 %{__libtoolize}
@@ -117,9 +112,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/libtotem-plparser-mini.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libtotem-plparser-mini.so.10
+%attr(755,root,root) %ghost %{_libdir}/libtotem-plparser-mini.so.12
 %attr(755,root,root) %{_libdir}/libtotem-plparser.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libtotem-plparser.so.10
+%attr(755,root,root) %ghost %{_libdir}/libtotem-plparser.so.12
 
 %files devel
 %defattr(644,root,root,755)
