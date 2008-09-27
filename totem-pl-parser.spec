@@ -6,7 +6,7 @@ Release:	1
 License:	LGPL v2+
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/totem-pl-parser/2.24/%{name}-%{version}.tar.bz2
-# Source0-md5:	9afeede3075c10f8cf1092d80c4e9737
+# Source0-md5:	018a906406bda8c3f22b0c63e5ddb926
 URL:		http://www.gnome.org/projects/totem/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake >= 1:1.9
