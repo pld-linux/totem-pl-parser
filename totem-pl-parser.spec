@@ -1,19 +1,20 @@
 Summary:	Totem Playlist Parser library
 Summary(pl.UTF-8):	Biblioteka analizująca listy odtwarzania Totema
 Name:		totem-pl-parser
-Version:	2.28.2
-Release:	2
+Version:	2.29.1
+Release:	1
 License:	LGPL v2+
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/totem-pl-parser/2.28/%{name}-%{version}.tar.bz2
-# Source0-md5:	a641b6061761535eb3646752bb1545f3
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/totem-pl-parser/2.29/%{name}-%{version}.tar.bz2
+# Source0-md5:	3a3795fa5a188190e743fae0db3c36e3
 URL:		http://www.gnome.org/projects/totem/
-BuildRequires:	autoconf >= 2.52
+BuildRequires:	autoconf >= 2.62
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 1:2.22.0
 BuildRequires:	gmime-devel
 BuildRequires:	gnome-common >= 2.24.0
+BuildRequires:	gobject-introspection-devel >= 0.6.7
 BuildRequires:	gtk+2-devel >= 2:2.16.0
 BuildRequires:	gtk-doc >= 1.11
 BuildRequires:	intltool >= 0.40.0
@@ -115,9 +116,10 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/libtotem-plparser-mini.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libtotem-plparser-mini.so.12
+%attr(755,root,root) %ghost %{_libdir}/libtotem-plparser-mini.so.17
 %attr(755,root,root) %{_libdir}/libtotem-plparser.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libtotem-plparser.so.12
+%attr(755,root,root) %ghost %{_libdir}/libtotem-plparser.so.17
+%{_libdir}/girepository-1.0/TotemPlParser.typelib
 
 %files devel
 %defattr(644,root,root,755)
@@ -128,6 +130,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/totem-pl-parser
 %{_pkgconfigdir}/totem-plparser-mini.pc
 %{_pkgconfigdir}/totem-plparser.pc
+%{_datadir}/gir-1.0/TotemPlParser.gir
 
 %files static
 %defattr(644,root,root,755)
