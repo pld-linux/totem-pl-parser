@@ -1,12 +1,12 @@
 Summary:	Totem Playlist Parser library
 Summary(pl.UTF-8):	Biblioteka analizująca listy odtwarzania Totema
 Name:		totem-pl-parser
-Version:	2.30.1
-Release:	2
+Version:	2.30.2
+Release:	1
 License:	LGPL v2+
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/totem-pl-parser/2.30/%{name}-%{version}.tar.bz2
-# Source0-md5:	4e571af1a234a490b637cbcafe9974ca
+# Source0-md5:	c616536b9d7af21bbb16363eec0ec8a5
 URL:		http://www.gnome.org/projects/totem/
 BuildRequires:	autoconf >= 2.62
 BuildRequires:	automake >= 1:1.9
@@ -89,6 +89,7 @@ Dokumentacja API biblioteki totem-pl-parser.
 %{__autoheader}
 %{__automake}
 %configure \
+	--disable-silent-rules \
 	--enable-gtk-doc \
 	--with-html-dir=%{_gtkdocdir}
 
