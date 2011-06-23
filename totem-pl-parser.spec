@@ -17,7 +17,7 @@ BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gobject-introspection-devel >= 0.9.7
 BuildRequires:	gtk-doc >= 1.11
 BuildRequires:	intltool >= 0.40.0
-BuildRequires:	libarchive >= 2.8.4
+BuildRequires:	libarchive-devel >= 2.8.4
 BuildRequires:	libsoup-gnome-devel
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 1:2.6.31
@@ -44,7 +44,7 @@ Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	glib2-devel >= 1:2.24.0
 Requires:	gmime-devel
-Requires:	libarchive >= 2.8.4
+Requires:	libarchive-devel >= 2.8.4
 Requires:	libxml2-devel >= 1:2.6.31
 Requires:	quvi-devel >= 0.2.13
 
