@@ -1,18 +1,18 @@
 Summary:	Totem Playlist Parser library
 Summary(pl.UTF-8):	Biblioteka analizująca listy odtwarzania Totema
 Name:		totem-pl-parser
-Version:	3.4.3
-Release:	2
+Version:	3.4.4
+Release:	1
 License:	LGPL v2+
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/totem-pl-parser/3.4/%{name}-%{version}.tar.xz
-# Source0-md5:	cebd115e267ef3d377370512122e34c9
+# Source0-md5:	d047ab9a7555e36be36485cfb1b1fe2c
 URL:		http://www.gnome.org/projects/totem/
 BuildRequires:	autoconf >= 2.62
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 1:2.32.0
-BuildRequires:	gmime-devel
+BuildRequires:	gmime-devel >= 2.6.0
 BuildRequires:	gnome-common >= 3.5.91
 BuildRequires:	gobject-introspection-devel >= 0.9.7
 BuildRequires:	gtk-doc >= 1.14
@@ -46,7 +46,7 @@ Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki totem-pl-parser
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	glib2-devel >= 1:2.32.0
-Requires:	gmime-devel
+Requires:	gmime-devel >= 2.6.0
 Requires:	libarchive-devel >= 2.8.4
 Requires:	libgcrypt-devel
 Requires:	libxml2-devel >= 1:2.6.31
@@ -89,7 +89,7 @@ Dokumentacja API biblioteki totem-pl-parser.
 %{__gtkdocize}
 %{__intltoolize}
 %{__libtoolize}
-%{__aclocal}
+%{__aclocal} -I m4
 %{__autoconf}
 %{__autoheader}
 %{__automake}
