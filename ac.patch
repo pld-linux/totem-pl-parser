@@ -1,0 +1,10 @@
+--- totem-pl-parser-3.4.5/configure.ac.wiget	2013-07-13 11:17:13.929044601 +0200
++++ totem-pl-parser-3.4.5/configure.ac	2013-07-13 11:17:18.935936087 +0200
+@@ -11,6 +11,7 @@ AC_INIT([totem-pl-parser],
+ AC_CONFIG_SRCDIR([plparse/totem-pl-parser.c])
+ AC_CONFIG_HEADERS([config.h])
+ AC_CONFIG_MACRO_DIR([m4])
++AC_CONFIG_AUX_DIR([.])
+ AC_USE_SYSTEM_EXTENSIONS
+ 
+ AM_INIT_AUTOMAKE([1.9 dist-bzip2 no-dist-gzip check-news subdir-objects])

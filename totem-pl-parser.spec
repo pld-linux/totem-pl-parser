@@ -7,6 +7,7 @@ License:	LGPL v2+
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/totem-pl-parser/3.4/%{name}-%{version}.tar.xz
 # Source0-md5:	c675bb7e0195397d3870fd3c9690b220
+Patch0:		ac.patch
 URL:		http://www.gnome.org/projects/totem/
 BuildRequires:	autoconf >= 2.62
 BuildRequires:	automake >= 1:1.9
@@ -84,6 +85,7 @@ Dokumentacja API biblioteki totem-pl-parser.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__gtkdocize}
