@@ -16,6 +16,8 @@ BuildRequires:	gmime-devel >= 2.6.0
 BuildRequires:	gnome-common >= 3.5.91
 BuildRequires:	gobject-introspection-devel >= 0.9.7
 BuildRequires:	gtk-doc >= 1.14
+# 1.22 can't deal with multiple programlistings in section(?) (inserts invalid </para> <para> pair)
+BuildRequires:	gtk-doc < 1.22
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libarchive-devel >= 2.8.4
 BuildRequires:	libgcrypt-devel
