@@ -26,6 +26,7 @@ BuildRequires:	libxml2-devel >= 1:2.6.31
 BuildRequires:	pkgconfig
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
+Requires:	glib2 >= 1:2.36.0
 Requires:	libquvi >= 0.9.1
 Requires:	libsoup >= 2.43.0
 # sr@Latn vs. sr@latin
