@@ -1,15 +1,13 @@
 Summary:	Totem Playlist Parser library
 Summary(pl.UTF-8):	Biblioteka analizująca listy odtwarzania Totema
 Name:		totem-pl-parser
-Version:	3.10.8
+Version:	3.26.0
 Release:	1
 License:	LGPL v2+
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/totem-pl-parser/3.10/%{name}-%{version}.tar.xz
-# Source0-md5:	2c2fb44c3124dd98ec827bcfcd040049
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/totem-pl-parser/3.26/%{name}-%{version}.tar.xz
+# Source0-md5:	f609b4a758055bca5045c83604638723
 URL:		http://www.gnome.org/projects/totem/
-BuildRequires:	autoconf >= 2.62
-BuildRequires:	automake >= 1:1.9
 BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= 1:2.36.0
 BuildRequires:	gmime3-devel >= 3.0
@@ -21,14 +19,15 @@ BuildRequires:	libarchive-devel >= 3.0
 BuildRequires:	libgcrypt-devel
 BuildRequires:	libquvi-devel >= 0.9.1
 BuildRequires:	libsoup-devel >= 2.43.0
-BuildRequires:	libtool >= 2:2.2
 BuildRequires:	libxml2-devel >= 1:2.6.31
+BuildRequires:	meson >= 0.40.1
 BuildRequires:	pkgconfig
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires:	glib2 >= 1:2.36.0
 Requires:	libquvi >= 0.9.1
 Requires:	libsoup >= 2.43.0
+Obsoletes:	totem-pl-parser-static < 3.26.0
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -91,26 +90,18 @@ Dokumentacja API biblioteki totem-pl-parser.
 %setup -q
 
 %build
-%{__gtkdocize}
-%{__intltoolize}
-%{__libtoolize}
-%{__aclocal} -I m4
-%{__autoconf}
-%{__autoheader}
-%{__automake}
-%configure \
-	--disable-silent-rules \
-	--enable-gtk-doc \
-	--with-html-dir=%{_gtkdocdir}
+%meson build \
+	-Denable-gtk-doc=true
 
-%{__make}
+%ninja -C build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
 
-%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
+export LC_ALL=C.UTF-8
+
+DESTDIR=$RPM_BUILD_ROOT \
+%ninja -C build install
 
 %find_lang %{name}
 
@@ -122,7 +113,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README
+%doc AUTHORS NEWS README
 %attr(755,root,root) %{_libdir}/libtotem-plparser-mini.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libtotem-plparser-mini.so.18
 %attr(755,root,root) %{_libdir}/libtotem-plparser.so.*.*.*
@@ -139,11 +130,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_pkgconfigdir}/totem-plparser-mini.pc
 %{_pkgconfigdir}/totem-plparser.pc
 %{_datadir}/gir-1.0/TotemPlParser-1.0.gir
-
-%files static
-%defattr(644,root,root,755)
-%{_libdir}/libtotem-plparser-mini.a
-%{_libdir}/libtotem-plparser.a
 
 %files apidocs
 %defattr(644,root,root,755)
