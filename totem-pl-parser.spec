@@ -2,7 +2,7 @@ Summary:	Totem Playlist Parser library
 Summary(pl.UTF-8):	Biblioteka analizująca listy odtwarzania Totema
 Name:		totem-pl-parser
 Version:	3.26.1
-Release:	1
+Release:	2
 License:	LGPL v2+
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/totem-pl-parser/3.26/%{name}-%{version}.tar.xz
@@ -11,23 +11,22 @@ URL:		http://www.gnome.org/projects/totem/
 BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= 1:2.36.0
 BuildRequires:	gmime3-devel >= 3.0
-BuildRequires:	gnome-common >= 3.5.91
 BuildRequires:	gobject-introspection-devel >= 0.9.7
 BuildRequires:	gtk-doc >= 1.24
-BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libarchive-devel >= 3.0
 BuildRequires:	libgcrypt-devel
 BuildRequires:	libquvi-devel >= 0.9.1
 BuildRequires:	libsoup-devel >= 2.43.0
 BuildRequires:	libxml2-devel >= 1:2.6.31
 BuildRequires:	meson >= 0.40.1
+BuildRequires:	ninja
 BuildRequires:	pkgconfig
+BuildRequires:	rpmbuild(macros) >= 1.733
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires:	glib2 >= 1:2.36.0
 Requires:	libquvi >= 0.9.1
 Requires:	libsoup >= 2.43.0
-Obsoletes:	totem-pl-parser-static < 3.26.0
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -98,8 +97,6 @@ Dokumentacja API biblioteki totem-pl-parser.
 %install
 rm -rf $RPM_BUILD_ROOT
 
-export LC_ALL=C.UTF-8
-
 %meson_install -C build
 
 %find_lang %{name}
@@ -129,6 +126,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_pkgconfigdir}/totem-plparser-mini.pc
 %{_pkgconfigdir}/totem-plparser.pc
 %{_datadir}/gir-1.0/TotemPlParser-1.0.gir
+
+%files static
+%defattr(644,root,root,755)
+%{_libdir}/libtotem-plparser-mini.a
+%{_libdir}/libtotem-plparser.a
 
 %files apidocs
 %defattr(644,root,root,755)
