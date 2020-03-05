@@ -1,15 +1,15 @@
 Summary:	Totem Playlist Parser library
 Summary(pl.UTF-8):	Biblioteka analizująca listy odtwarzania Totema
 Name:		totem-pl-parser
-Version:	3.26.4
+Version:	3.26.5
 Release:	1
 License:	LGPL v2+
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/totem-pl-parser/3.26/%{name}-%{version}.tar.xz
-# Source0-md5:	70fc2731fd2c7876bf1ba81e7918a0b5
-URL:		http://www.gnome.org/projects/totem/
+# Source0-md5:	0798a286af7e98c664d48e2974b77e5a
+URL:		https://wiki.gnome.org/Apps/Videos
 BuildRequires:	gettext-tools
-BuildRequires:	glib2-devel >= 1:2.36.0
+BuildRequires:	glib2-devel >= 1:2.56.0
 BuildRequires:	gobject-introspection-devel >= 0.9.7
 BuildRequires:	gtk-doc >= 1.24
 BuildRequires:	libarchive-devel >= 3.0
@@ -23,11 +23,9 @@ BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.733
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
-Requires:	glib2 >= 1:2.36.0
+Requires:	glib2 >= 1:2.56.0
 Requires:	libquvi >= 0.9.1
 Requires:	libsoup >= 2.43.0
-# sr@Latn vs. sr@latin
-Conflicts:	glibc-misc < 6:2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %undefine	__cxx
@@ -45,7 +43,7 @@ Summary:	Header files for totem-pl-parser library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki totem-pl-parser
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	glib2-devel >= 1:2.36.0
+Requires:	glib2-devel >= 1:2.56.0
 Requires:	libarchive-devel >= 3.0
 Requires:	libgcrypt-devel
 Requires:	libxml2-devel >= 1:2.6.31
@@ -114,7 +112,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %ghost %{_libdir}/libtotem-plparser.so.18
 %{_libdir}/girepository-1.0/TotemPlParser-1.0.typelib
 %dir %{_libexecdir}/totem-pl-parser
-%attr(755,root,root) %{_libexecdir}/totem-pl-parser/99-totem-pl-parser-videosite
+%attr(755,root,root) %{_libexecdir}/totem-pl-parser/99-totem-pl-parser-videosite-quvi
 
 %files devel
 %defattr(644,root,root,755)
