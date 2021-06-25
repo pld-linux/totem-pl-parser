@@ -1,12 +1,12 @@
 Summary:	Totem Playlist Parser library
 Summary(pl.UTF-8):	Biblioteka analizująca listy odtwarzania Totema
 Name:		totem-pl-parser
-Version:	3.26.5
+Version:	3.26.6
 Release:	1
 License:	LGPL v2+
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/totem-pl-parser/3.26/%{name}-%{version}.tar.xz
-# Source0-md5:	0798a286af7e98c664d48e2974b77e5a
+Source0:	https://download.gnome.org/sources/totem-pl-parser/3.26/%{name}-%{version}.tar.xz
+# Source0-md5:	69dc2cf0e61e6df71ed45156b24b14da
 URL:		https://wiki.gnome.org/Apps/Videos
 BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= 1:2.56.0
@@ -14,17 +14,16 @@ BuildRequires:	gobject-introspection-devel >= 0.9.7
 BuildRequires:	gtk-doc >= 1.24
 BuildRequires:	libarchive-devel >= 3.0
 BuildRequires:	libgcrypt-devel
-BuildRequires:	libquvi-devel >= 0.9.1
 BuildRequires:	libsoup-devel >= 2.43.0
 BuildRequires:	libxml2-devel >= 1:2.6.31
 BuildRequires:	meson >= 0.40.1
 BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig
+BuildRequires:	rpm-build >= 4.6
 BuildRequires:	rpmbuild(macros) >= 1.733
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires:	glib2 >= 1:2.56.0
-Requires:	libquvi >= 0.9.1
 Requires:	libsoup >= 2.43.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -93,6 +92,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %meson_install -C build
 
+# pacakged as %doc
+%{__rm} $RPM_BUILD_ROOT%{_libexecdir}/totem-pl-parser/README-videosite-script.md
+
 %find_lang %{name}
 
 %clean
@@ -103,14 +105,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS NEWS README
+%doc AUTHORS NEWS README.md plparse/README-videosite-script.md
 %attr(755,root,root) %{_libdir}/libtotem-plparser-mini.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libtotem-plparser-mini.so.18
 %attr(755,root,root) %{_libdir}/libtotem-plparser.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libtotem-plparser.so.18
 %{_libdir}/girepository-1.0/TotemPlParser-1.0.typelib
 %dir %{_libexecdir}/totem-pl-parser
-%attr(755,root,root) %{_libexecdir}/totem-pl-parser/99-totem-pl-parser-videosite-quvi
 
 %files devel
 %defattr(644,root,root,755)
